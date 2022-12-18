@@ -2,14 +2,23 @@ import { FormEvent } from 'react';
 import { Button } from './Button';
 import { Header } from './Header';
 
-export const AddBillModal = () => {
+interface AddBillModalProps {
+  show?: boolean;
+  closeModal: () => void;
+}
+
+export const AddBillModal = ({ show, closeModal }: AddBillModalProps) => {
   function handleSubmitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     console.log('form submitted');
   }
 
   return (
-    <div className='flex flex-col absolute w-full h-screen bg-zinc-100'>
+    <div
+      className={`absolute flex flex-col w-full h-screen bg-zinc-100 transition-all duration-300 ${
+        show ? 'top-0' : 'top-full'
+      }`}
+    >
       <Header title='Cadastrar compra' />
 
       <form
@@ -37,8 +46,9 @@ export const AddBillModal = () => {
 
         <footer className='flex gap-6'>
           <Button
-            type='reset'
+            type='button'
             appearance='secondary'
+            onClick={closeModal}
           >
             Cancelar
           </Button>

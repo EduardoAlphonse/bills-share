@@ -1,6 +1,8 @@
-import { Header } from './component/Header';
-import { Bill } from './component/Bill';
-import { Button } from './component/Button';
+import { Link } from 'react-router-dom';
+
+import { Header } from '../component/Header';
+import { Bill } from '../component/Bill';
+import { Button } from '../component/Button';
 
 export const BillsShareDetails = () => {
   const bill = {
@@ -34,7 +36,12 @@ export const BillsShareDetails = () => {
       </div>
 
       <footer className='flex items-center gap-4 px-5 py-4  text-white font-semibold'>
-        <Button>Voltar</Button>
+        <Link
+          to='/'
+          className='flex-1'
+        >
+          <Button>Voltar</Button>
+        </Link>
       </footer>
     </div>
   );

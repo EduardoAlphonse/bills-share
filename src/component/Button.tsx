@@ -15,7 +15,7 @@ export const Button = ({
   return (
     <button
       className={`flex justify-center items-center h-14 font-semibold rounded
-      ${shrink ? 'w-14' : 'flex-1 px-5'}
+      ${shrink ? 'min-w-[3.5rem]' : 'w-full px-5'}
       ${
         appearance === 'primary'
           ? 'text-white bg-zinc-800 hover:bg-zinc-700'

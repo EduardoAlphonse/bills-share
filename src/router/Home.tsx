@@ -1,11 +1,23 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PlusCircle } from 'phosphor-react';
 
-import { Header } from './component/Header';
-import { Bill } from './component/Bill';
-import { Button } from './component/Button';
-import { AddBillModal } from './component/AddBillModal';
+import { Header } from '../component/Header';
+import { Bill } from '../component/Bill';
+import { Button } from '../component/Button';
+import { AddBillModal } from '../component/AddBillModal';
 
-function App() {
+export const Home = () => {
+  const [showAddBillModal, setshowAddBillModal] = useState(false);
+
+  function handleShowModal() {
+    setshowAddBillModal(true);
+  }
+
+  function handleCloseModal() {
+    setshowAddBillModal(false);
+  }
+
   const bill = {
     avatarUrl: 'https://github.com/EduardoAlphonse.png',
     label: 'Papel toalha',
@@ -13,7 +25,7 @@ function App() {
   };
 
   return (
-    <div className='flex flex-col h-screen relative'>
+    <div className='flex flex-col h-screen relative overflow-hidden'>
       <Header title='Contas do mês de Dezembro' />
 
       <ul className='px-5 flex-1 overflow-y-auto'>
@@ -36,15 +48,25 @@ function App() {
       <footer className='flex items-center gap-4 px-5 py-4 bg-primary-700 text-white font-semibold'>
         <span>Total</span>
         <span>R$ 72,90</span>
-        <Button>Ver divisão</Button>
-        <Button shrink>
+        <Link
+          to='divisao-de-contas'
+          className='flex-1'
+        >
+          <Button>Ver divisão</Button>
+        </Link>
+
+        <Button
+          shrink
+          onClick={handleShowModal}
+        >
           <PlusCircle className='w-8 h-8' />
         </Button>
       </footer>
 
-      <AddBillModal />
+      <AddBillModal
+        show={showAddBillModal}
+        closeModal={handleCloseModal}
+      />
     </div>
   );
-}
-
-export default App;
+};
