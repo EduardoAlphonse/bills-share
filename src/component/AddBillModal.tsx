@@ -39,7 +39,7 @@ export const AddBillModal = ({ show, closeModal }: AddBillModalProps) => {
           <span className='block mb-3 font-semibold'>Valor</span>
           <input
             type='number'
-            placeholder='O que você comprou?'
+            placeholder='Valor total da compra'
             className='w-full bg-white px-5 py-4 rounded'
           />
         </label>

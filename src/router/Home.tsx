@@ -10,6 +10,14 @@ import { AddBillModal } from '../component/AddBillModal';
 export const Home = () => {
   const [showAddBillModal, setshowAddBillModal] = useState(false);
 
+  const date = new Date();
+
+  let month = Intl.DateTimeFormat('pt-BR', {
+    month: 'long',
+  }).format(date);
+
+  month = month[0].toUpperCase() + month.slice(1);
+
   function handleShowModal() {
     setshowAddBillModal(true);
   }
@@ -26,7 +34,7 @@ export const Home = () => {
 
   return (
     <div className='flex flex-col h-screen relative overflow-hidden'>
-      <Header title='Contas do mês de Dezembro' />
+      <Header title={`Contas do mês de ${month}`} />
 
       <ul className='px-5 flex-1 overflow-y-auto'>
         <Bill data={bill} />
@@ -46,13 +54,15 @@ export const Home = () => {
       </ul>
 
       <footer className='flex items-center gap-4 px-5 py-4 bg-primary-700 text-white font-semibold'>
-        <span>Total</span>
-        <span>R$ 72,90</span>
+        <span className='relative pr-4 after:content-["\2022"] after:absolute after:right-[-2px]'>
+          TOTAL
+        </span>
+        <span className='text-xl'>R$ 72,90</span>
         <Link
           to='divisao-de-contas'
           className='flex-1'
         >
-          <Button>Ver divisão</Button>
+          <Button>Divisão de contas</Button>
         </Link>
 
         <Button

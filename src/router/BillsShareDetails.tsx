@@ -25,7 +25,7 @@ export const BillsShareDetails = () => {
           </ul>
         </section>
 
-        <section className='flex flex-col gap-2 px-5 py-5 border-b-primary-700 border-b'>
+        <section className='flex flex-col gap-2 px-5 py-5'>
           <h1 className='font-semibold text-lg'>Divisão por pessoa</h1>
           <ul className='flex-1 overflow-y-auto'>
             <Bill data={bill} />
@@ -35,7 +35,7 @@ export const BillsShareDetails = () => {
         </section>
       </div>
 
-      <footer className='flex items-center gap-4 px-5 py-4  text-white font-semibold'>
+      <footer className='flex items-center gap-4 px-5 py-4  text-white font-semibold border-zinc-800 border-t'>
         <Link
           to='/'
           className='flex-1'

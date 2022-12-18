@@ -14,7 +14,7 @@ export const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`flex justify-center items-center h-14 font-semibold rounded
+      className={`flex justify-center items-center h-14 font-semibold rounded uppercase
       ${shrink ? 'min-w-[3.5rem]' : 'w-full px-5'}
       ${
         appearance === 'primary'
